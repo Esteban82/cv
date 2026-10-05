@@ -1,0 +1,482 @@
+% !TEX TS-program = xelatex
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[vmargin=2.5cm, hmargin=2.5cm]{geometry}
+\usepackage{enumitem} % fancier lists
+
+% Use Palatino font
+\usepackage{fontspec}
+\setmainfont[BoldFont=texgyrepagella-bold.otf, ItalicFont=texgyrepagella-italic.otf, BoldItalicFont=texgyrepagella-bolditalic.otf]{texgyrepagella-regular.otf}
+
+% Disable hyphenation in the CV
+\usepackage[none]{hyphenat}
+\sloppy % avoid overfull lines with long URLs and author lists
+
+% Configure paragraph spacings
+\setlength{\parindent}{0cm} % Remove indentations
+\setlength{\parskip}{0.6em}
+
+% Configure lists
+\setlist[itemize]{leftmargin=1.5em, itemsep=0.5em, topsep=0.2em, parsep=0pt}
+
+% Configure the font style for sections
+\usepackage{titlesec}
+\titleformat{\section}
+    [hang] % the default shape for sections
+    {\normalfont\LARGE\bfseries} % format
+    {} % label
+    {0pt} % separation (left separation for hang)
+    {} % before title
+    [\titlerule] % after title
+\titleformat{\subsection}
+    [hang] % the default shape for sections
+    {\large\MakeUppercase} % format
+    {} % label
+    {0pt} % separation (left separation for hang)
+    {} % before title
+\titlespacing*{\section}
+    {0pt} % left margin
+    {2.5ex} % space before title
+    {1.5ex} % separation between title and text
+\titlespacing*{\subsection}
+    {0pt} % left margin
+    {2ex} % space before title
+    {1ex} % separation between title and text
+
+% Disable number of sections. Use this instead of "section*" so that the
+% sections still appear as PDF bookmarks.
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+% Configure fancyhdr
+\usepackage{fancyhdr}
+\usepackage{lastpage} % get the total page numbers (\pageref{LastPage})
+\fancyhf{}  % clear current head and footer
+\fancyfoot[C]{\small \thepage{} de~\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0cm} % remove header rule
+\pagestyle{fancy}
+
+% Define new colors
+\usepackage{xcolor}
+\definecolor{mygray}{HTML}{555555}
+
+% -----------
+% Information
+% -----------
+\newcommand{\fullname}{Esteban Federico Damián}
+\newcommand{\email}{esteban@gl.fcen.uba.ar}
+\newcommand{\emailalt}{federico.esteban@gmail.com}
+\newcommand{\github}{Esteban82}
+\newcommand{\orcid}{0000-0002-0641-7371}
+
+% Titles and headings
+\newcommand{\maintitle}[1]{%
+    \begin{flushleft}
+        \textbf{\Huge #1}
+    \end{flushleft}
+}
+\newcommand{\subtitle}[1]{%
+    \begin{flushleft}
+        {\LARGE #1}
+    \end{flushleft}
+}
+\newcommand{\affiliation}[1]{%
+    \begin{flushleft}
+        {\large #1}
+    \end{flushleft}
+}
+
+% Macros
+\newcommand{\MAIL}[1]{\href{mailto:#1}{#1}}
+\newcommand{\GITHUB}[1]{\href{https://github.com/#1}{github.com/#1}}
+\newcommand{\ORCID}[1]{\href{https://orcid.org/#1}{#1}}
+
+% Last modified date (YYYY-MM-DD)
+\newcommand{\isodate}{\number\year-\ifnum\month<10 0\fi\number\month-\ifnum\day<10 0\fi\number\day}
+
+% ------------------
+% Configure hyperref
+% ------------------
+\usepackage{hyperref}
+\usepackage{xurl} % allow line breaks inside long URLs
+\hypersetup{
+    colorlinks,
+    allcolors=[rgb]{0, 0.451, 0.753},
+    pdftitle={Curriculum Vitae de \fullname{}},
+    pdfauthor={\fullname},
+}
+\urlstyle{same}
+
+% ------------------------------------------------------------------------
+
+\begin{document}
+
+% ------
+% Header
+% ------
+\maintitle{\fullname}
+
+\begin{minipage}[t]{0.58\linewidth}
+    \begin{flushleft}
+        \subtitle{Investigador CONICET}
+        \affiliation{Instituto de Geociencias Básicas, Aplicadas y Ambientales de Buenos Aires (IGeBA), CONICET--UBA}
+    \end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.40\linewidth}
+    \begin{flushright}
+        \textbf{email} \MAIL{\email}
+        \\
+        \textbf{email} \MAIL{\emailalt}
+        \\
+        \textbf{ORCID} \ORCID{\orcid}
+        \\
+        \textbf{GitHub} \GITHUB{\github}
+        \\
+        \color{mygray}{Última modificación: \isodate}
+    \end{flushright}
+\end{minipage}
+
+
+\section{Experiencia en Ciencia y Técnica}
+
+Desde 2006 me he orientado en el campo de la geofísica, en particular en el campo de la sísmica para el cual he aprendido y capacitado en manejo diversos programas informáticos propicios para el manejo de datos sísmicos. En el mismo marco, he participado de distintas campañas oceanográficas en distintos buques de investigación que incluyen la Iniciativa Pampa Azul. Estas campañas me permitieron conocer en detalle las técnicas de relevamientos de geofísica marina (sísmica, magnetometría, gravimetría, batimetría), además de otras metodologías geológicas (coring, dragas) y de otras disciplinas afines. Estos conocimientos los he aplicado principalmente en el estudio de los Andes Fueguinos y su continuación hacia oriente, en el sector del océano Atlántico (Banco Burdwood) y mar Scotia. Los estudios dentro de los Andes Fueguinos se han centrado en las áreas sumergidas del Lago Fagnano y del Canal Beagle.
+
+Me he capacitado en las técnicas de adquisición y procesamiento de datos de batimetría multihaz y en geomorfometría para el filtrado y análisis de rasgos morfo-estructurales del lecho marino. En concordancia, me he capacitado y aprendido otros programas informáticos para el procesamiento, integración y visualización de datos geofísicos y batimétricos, incluyendo la automatización de flujos de procesamientos de datos. Parte de éstos conocimientos informáticos los he enseñado en cursos sobre la elaboración de mapas y figuras (gráficos, perfiles, bloques 3D) geológicos. Soy colaborador del software The Generic Mapping Tools desde el 2021 (versión 6.3).
+
+
+\section{Formación}
+
+
+\subsection{Formación Académica}
+
+\textbf{Grado académico:} Doctor en Ciencias Geológicas. Especialidad: Geofísica.
+
+\textbf{Universitario de doctorado}: 2008 – 2014. Doctorado en Ciencias Geológicas. Facultad de Ciencias Exactas y Naturales. Universidad de Buenos Aires. Trabajo final de Doctorado: “Estudio geofísico-geológico del subsuelo del segmento noroccidental de la Dorsal Norte de Scotia. Argentina”. Calificación: Sobresaliente. Director: Dr. Alejandro Tassone.
+
+\textbf{Universitario de grado}: 2001 – 2008. Licenciatura en Ciencias Geológicas. Facultad de Ciencias Exactas y Naturales. Universidad de Buenos Aires. Promedio: 7,79. Título obtenido: Licenciado en Ciencias Geológicas. Trabajo final de Licenciatura: “Estudio de la Fábrica magnética y micro-estructuras a través de una transecta de los Andes Fueguinos”.
+
+
+\subsection{Formación complementaria}
+
+\textbf{Cursos de Posgrado:}
+
+\begin{itemize}
+    \item \textbf{2022}. Curso “InSar Processing and Theory with GMTSAR” del 11 al 15 de Julio. Curso virtual. Carga horaria 8 hs. Dictado por UNAVCO (actualmente Earth Scope Comsortium \url{https://www.unavco.org/event/2022-short-course-insar-processing-and-theory-with-gmtsar/}).
+    \item \textbf{2018}. Cursos de seguridad náutica de la Organización Marítima Internacional (OMI). 19 al 23 de Febrero en Mar del Plata. Carga horaria: 40 hs. Dictada por Armada Argentina.
+    \item \textbf{2017}. Curso de entrenamiento oficial Teledyne CARIS en CARIS HIPS and SIPS 10.2. 12 al 16 de Junio en Mar del Plata. Carga horaria: 40 hs. Instructor: José Arturo Arias.
+    \item \textbf{2016}. “Taller Práctico sobre Adquisición y Procesamiento de Datos Batimétricos Multihaz”. Asistencia. Escuela de Ciencias del Mar, Servicio de Hidrografía Naval. Carga horaria 40,5 hs. Instructores: Jorge Arias (Teledyne Caris) y Alexis Primelles Cardenas (Kongsberg).
+    \item \textbf{2015}. Capacitación en CANVAS (Metodología ágil para diseñar un proyecto de transferencia) y Herramientas de Financiamiento. Asistencia. Rectorado, Universidad de Buenos Aires. Carga horaria 4 hs.
+\end{itemize}
+
+\textbf{Idiomas:}
+
+\begin{itemize}
+    \item Inglés: Nivel escrito, oral y de lectura avanzado.
+    \item Italiano: Nivel escrito, oral y de lectura avanzado.
+    \item Francés: Nivel escrito, oral y de lectura intermedio.
+\end{itemize}
+
+\textbf{Recursos Informáticos:}
+
+\begin{itemize}
+    \item Ofimática: Latex, Lyx, Mendeley, Zotero, paquete Microsoft Office y LibreOffice, Corel, Inkscape, Gimp, Moodle.
+    \item SIG y afines: Generic Mapping Tools (GMT), GlobalMapper, QGis, Google Earth, CARIS HIPS and SIPS.
+    \item Geológicos/Geofísicos: GeoMapApp, ModelVision, Geomodel, IGMAS+, Gmap 2003, SuperIAPD, Cureval8, Anisoft 4.2, StereoNet, Daisy, ENVI.
+    \item Sísmicos: Kingdom Suite, SegyTool, SegyTracker, Image2Segy, SeiSee, WSegyCat, SeismiGraphix.
+    \item Programación y afines: Bash (medio), MatLab (básico), JAVA (básico), python (básico), C (básico), Git, Github, Markdown, reStructuredText, PostScript Languague.
+\end{itemize}
+
+
+\section{Cargos Docentes}
+
+
+\subsection{Nivel superior universitario}
+
+\begin{itemize}
+    \item Profesor visitante del Departamento de Geología, Facultad de Ciencias Exactas y Naturales. Universidad de Buenos Aires. Dictado del curso “Geoinformática aplicada a la cartografía multitemática” en 2022.
+\end{itemize}
+
+
+\subsection{Cursos de Posgrado: (15)}
+
+\begin{itemize}
+    \item 2025: “Introduction to the Generic Mapping Tools (GMT) for Geophysics”. \url{https://www.earthscope.org/event/2025-technical-short-course-introduction-to-generic-mapping-tool-gmt-for-geophysics/}. Carga horaria del curso: 30 hs.
+    \item 2024: AGU24 workshop: Mastering Geospatial Visualizations with GMT/PyGMT. Carga horaria: 8 hs. \url{https://github.com/GenericMappingTools/agu24workshop/tree/main}
+    \item 2022-2024 (2). “Geoinformática aplicada a la cartografía multitemática”. Facultad de Ciencias Exactas y Naturales. Universidad de Buenos Aires. Carga horaria: 48 hs. \url{https://github.com/Esteban82/FCEN-2024}.
+    \item Junio. 2021 a 2023 (3). The Generic Mapping Tools (GMT) for geodesy. Earthscope Consortium (ex- UNAVCO). Carga horaria: 20 hs.
+    \item Agosto-Septiembre 2020 y 2021 (2). “Geoinformática aplicada a la cartografía multitemática”. Asociación Geológica Argentina en modalidad virtual. Carga horaria: 45 hs.
+    \item Septiembre 2018: “Geoinformática aplicada a la cartografía multitemática”. Doctorado en Ciencias Geológicas. Facultad de Ciencias Exactas, Físicas y Naturales, Universidad Nacional de San Juan (UNSJ). Carga horaria: 45 hs.
+    \item Agosto 2018: “Introducción a geoinformática aplicada a la cartografía multitemática”. Facultad de Ciencias Exactas y Naturales (FCEN). Curso en el Congreso X Jornadas de Ciencias del Mar.
+    \item Septiembre 2017: “Geoinformática aplicada a la cartografía multitemática”. Carga horaria: 30 hs. En el Buque Austral durante Campaña Oceanográfica.
+    \item Noviembre 2016: “Geoinformática aplicada a la cartografía multitemática”. Doctorado en Ciencias Geológicas. Facultad de Ciencias Exactas, Físicas y Naturales, Universidad de Córdoba (UNC). Carga horaria: 30 hs.
+    \item Julio 2016: “Geoinformática aplicada a la cartografía multitemática”. Depto. de Geología. Facultad de Ciencias Exactas y Naturales (FCEN), Universidad de Buenos Aires (UBA). Carga horaria: 48 hs.
+    \item Abril 2016: “Introducción a geoinformática aplicada a la cartografía”. Instituto Geográfico Nacional (IGN). Carga horaria: 4 hs. Curso dictado en FOSS4G - Conferencia de Geomática Libre.
+\end{itemize}
+
+
+\section{Producción Científica}
+
+
+\subsection{Artículos: (39)}
+
+\begin{itemize}
+    \item Oriolo S, Maffini MN, Ozán IL, Cantera CG, Sívori MR, \textbf{Esteban FD}, Ostera H. 2026. A-type granitoids as a major source of indoor radon and gamma radiation: Insights from the Punilla valley (Argentina). \url{https://doi.org/10.1016/j.jenvrad.2026.107992}
+    \item Ozán IL, Oriolo S, Maffini MN, \textbf{Esteban FD}, Ferreyro I, Temprano D, Cantera CG, Sívori MS, Zárate H, Ferreira Maltez DR, Ceretani A, Torriglia MS, Ostera H. 2026. Indoor radon in the Punilla Valley (Córdoba, Argentina): sources, controls and perspectives. Environmetal Earth Sciences 85, 30. \url{https://doi.org/10.1007/s12665-025-12695-2}
+    \item Bravo ME, Levin LA, Alder V, Bozzano G, Buren AD, Carbajal JC, Davila P, Doti BL, \textbf{Esteban FD}, et al. 2025. The Argentine deep sea: a new strategic frontier for sustainable development. Marine and Fishery Sciences (MAFIS), 38(4), 659-672. \url{https://doi.org/10.47193/mafis.3842025011006}
+    \item Palma F, Acosta L, Isola J, \textbf{Esteban FD}, Tassone A. 2025. Qualitative seafloor characterization based on backscatter analyses of the Sloggett Canyon’s area, Argentina. Geo-Marine Letters 45, 22. \url{https://doi.org/10.1007/s00367-025-00810-y}.
+    \item Lozano JG, Bran DM, Ramírez S, Restelli F, Bunicontro S, \textbf{Esteban FD}, Menichetti M, Lodolo E, Renzulli A, Vilas JF, Tassone A. 2024. A geophysical assessment of the Termas de Río Valdez geothermal area (Tierra del Fuego, Argentina). Geothermics, 119. \url{https://doi.org/10.1016/j.geothermics.2024.102963}.
+    \item Palma F, Principi S, Ormazabal JP, Acosta L, Isola J, Bran DM, \textbf{Esteban FD}, Tassone A. 2024. Echo-characterization of the Sloggett Canyon and the interfluve with Valentín Canyon, Tierra del Fuego Continental Margin, Argentina, Deep Sea Research Part I: Oceanographic Research Papers, Volume 208. \url{https://doi.org/10.1016/j.dsr.2024.104299}.
+    \item Ormazabal JP, Principi S, Palma FI, Bran DM, Isola JI, \textbf{Esteban FD,} Tassone AA. 2024. Neotectonics on the Namuncurá (Burdwood) Bank: unveiling seafloor strike-slip processes along the North Scotia Ridge. Journal of the Geological Society. 181 (4): jgs2023–215. doi: \url{https://doi.org/10.1144/jgs2023-215}
+    \item Ormazabal JP, Lodolo E, Bravo ME, Principi S, Palma FI, Bran DM, Isola JI, \textbf{Esteban FD}, Tassone A. 2024. Shallow subsurface fluid dynamics in the Malvinas Basin (SW Atlantic): A geoacoustic analysis, Marine and Petroleum Geology, 170, (107149). \url{https://doi.org/10.1144/jgs2023-215}
+    \item Restelli FB, Bran DM, Almaraz F, Menichetti M, Lodolo E, \textbf{Esteban FD}, Lozano JG, Tassone A. 2025. Neotectonics of the Magallanes-Fagnano fault system in Fuegian Patagonia based on high-resolution seismic profiles and geomorphic markers. Int J Earth Sci (Geol Rundsch) 114, 117–136 . \url{https://doi.org/10.1007/s00531-024-02467-x}
+    \item Wessel P, \textbf{Esteban FD}, Delaviel-Anger G. 2024. The Generic Mapping Tools and Animations for the Masses. Geochemistry, Geophysics, Geosystems. \url{https://doi.org/10.1029/2024GC011545}
+    \item Principi S, Palma F, Bran DM, Bozzano G, Isola JI, Ormazabal JP, \textbf{Esteban FD}, Acosta L, Tassone A. 2024. Seafloor geomorphology of the northern Argentine continental slope at 40-41° S mapped from high-resolution bathymetry, Journal of South American Earth Sciences, \url{https://doi.org/10.1016/j.jsames.2023.104748}.
+    \item Ormazabal JP, Lodolo E, Bravo ME, Principi S, Palma FI, Bran DM, Isola JI, \textbf{Esteban FD}, Tassone A. 2024. Shallow subsurface fluid dynamics in the Malvinas Basin (SW Atlantic): A geoacoustic analysis. Marine and Petroleum Geology, 170, \url{https://doi.org/10.1016/j.marpetgeo.2024.107149}.
+    \item Franck Eitel Kemgang Ghomsi, Luan Thanh Pham, Robert Tenzer, \textbf{Esteban FD}, Tich Van Vu, Joseph Kamguia. 2022. Mapping of fracture zones and structural lineaments of the Gulf of Guinea passive margins using marine gravity data from CryoSat-2 and Jason-1 satellites, Geocarto International, 37:25, 10819-10842, DOI: 10.1080/10106049.2022.2040602
+    \item Lozano JG, Bran DM, Donda F, Lodolo E, \textbf{Esteban FD,} Tassone AA. 2021, ‘Palaeolago Fueguino’, a Late Pleistocene lacustrine basin located in the central sector of Tierra del Fuego: a seismostratigraphic study. J. Quaternary Sci, 36: 273-287. \url{https://doi.org/10.1002/jqs.3276}.
+    \item Isola JI, Bravo ME, Bozzano G, Palma FI, Ormazabal JP, Principi S, Spoltore D, Martin R, \textbf{Esteban FD}, Tassone AA. 2021. The Late-Quaternary deposits of the Piedra Buena Terrace (Patagonian continental slope, SW Atlantic): An example of interaction between bottom currents and seafloor morphology. Marine Geology, 435. \url{https://doi.org/10.1016/j.margeo.2021.106459}.
+    \item Palma FI, Bozzano G, Principi S, Isola JI , Ormazabal JP , \textbf{Esteban FD,} Tassone AA 2021. Geomorphology and sedimentary processes on the Sloggett Canyon, Northwestern Scotia Sea, Argentina. Journal of South American Earth Sciences 107. \url{https://doi.org/10.1016/j.jsames.2020.103136}.
+    \item Ormazabal JP, Isola JI, Palma FI, Lozano JG, \textbf{Esteban FD}, Menichetti M, Lodolo E, Tassone AA. 2020. Basement structural control in the Magallanes-Malvinas Fold and Thrust Belt, offshore Argentina. Journal of South American Earth Sciences 103. \url{https://doi.org/10.1016/j.jsames.2020.102708}.
+    \item Lozano JG, Tassone AA, Bran DM, Onnis L, Lodolo E, Menichetti M, Cerredo ME, \textbf{Esteban FD}, Ormazabal JP, Ísola J., Baradello L y Vilas JF. 2020. Combining shallow and deep geophysical information: the Yehuin–Chepelmut Fault Zone in the Magallanes fold and thrust belt (Tierra del Fuego, Argentina). International Journal of Earth Science (Geol Rundsch) 109, 971–994. \url{https://doi.org/10.1007/s00531-020-} 01847-3
+    \item \textbf{Esteban FD}, Ormazabal JP, Palma FI, Cayo LE, Lodolo E y Tassone AA. 2019. Strike-slip related folding in within the Malvinas/Falkland Trough (southern Atlantic Ocean). Journal of South American Earth Sciences. \url{https://doi.org/10.1016/j.jsames.2019.102452}.
+    \item Ormazabal JP, Tassone AA, \textbf{Esteban FD}, Isola JI, Cayo LE, Lozano JG, Menichetti M y Lodolo E. 2019. Structure of the wedge-top and foredeep of the Magallanes-Malvinas basins between 62° W and 67° W (SW Atlantic Ocean). Journal of South American Earth Sciences, 93: 364–381.
+    \item \textbf{Esteban FD,} Tassone A, Isola JI, Lodolo E, Menichetti M. 2018. Geometry and structure of the pull-apart basins developed along the western South American-Scotia plate boundary (SW Atlantic Ocean). Journal of South American Earth Sciences, 83, 96-116.
+    \item Lozano JG, Tassone A, Bran DM, Lodolo E, Menichetti M, Cerredo ME, \textbf{Esteban FD}, Ormazabal JP, Ísola J, Baradello L, Vilas JF. 2018. Glacial-related morphology and sedimentary setting of a high-latitude lacustrine basin: The Lago Chepelmut (Tierra del Fuego, Argentina). Journal of South American Earth Sciences, 86.
+    \item Lozano, J. G., Tassone, A., Lodolo, E., Menichetti, M., Cerredo, M. E., Bran, D. M., \textbf{Esteban, F.}, Ormazabal, J. P., Baradello, L., and Vilas, J. F. 2018. Origin and evolution of lago Yehuin (Tierra del Fuego, Argentina): Results from a geophysical survey. Andean Geology, 45: 318.
+    \item Isola, J.I.; Tassone, A.A.; \textbf{Esteban, F.D.}; Violante, R.A.; Haller, M.J.F.; St-Onge, G. 2017. Sismoestratigrafía y evolución Cenozoica de un sector de las Terrazas Nágera y Perito Moreno, Margen Continental Patagónico. Latin American Journal of Sedimentology and Basin Analysis, 24 (1), 45-59.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Menichetti M.; Lodolo E. 2017. Application of Slope Maps as Complement of Bathymetry: Example from the SW Atlantic. Marine Geodesy, 40 (1), 57-71. doi:10.1080/01490419.2016.1269033.
+    \item Rapalini, A.E.; Peroni, J.; Luppo, T.; Tassone, A.; Cerredo, M.E.; \textbf{Esteban, F.D.}; Lippai, H.; Vilas. J.F. 2016. Paleomagnetism of Mesozoic magmatic units of the Fuegian Cordillera: Implications for the Patagonian Orocline. En: Pueyo, E.L. Cifell, F., Sussman, A.J. y Oliva-Urcia, B. (eds). Paleomagnetism in Fold and Thrust Belts: New Perspectives. Geological Society, London, Special Publications, 425, 65-80. \url{http://doi.org/10.1144/SP425.3}
+    \item \textbf{Esteban, F.D.}; Esteban, A.H. 2015. Aplicaciones informáticas para generar y arreglar archivos de navegación y registros sísmicos (segy). Geoacta 40 (1): 1–9.
+    \item Pérez, L.F.; Hernández-Molina, F.J.; \textbf{Esteban, F.D.}; Tassone, A.; Piola, A.R.; Maldonado, A.; Preu, B.; Violante, R.A.; Lodolo, E. 2015. Erosional and Depositional contourite features at the western Scotia Sea - Southern Atlantic Ocean Transition: correlations with regional water masses circulation. Geo-Marine Letters. Vo. 35 (4) p. 271-288, doi: 10.1007/s00367-015-0406-6.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Lodolo, E.; Menichetti, M.; Lippai, H.; Waldmann, N.; Darbo, A.; Baradello, L.; Vilas, J.F. 2014. Basement geometry and sediment thickness of Lago Fagnano (Tierra del Fuego). Andean Geology. 41 (2): 293-313.
+    \item Bran DM, Tassone AA, \textbf{Esteban FD}, Menichetti M, Lippai H y Vilas JF. 2013. Bathymetry and Electric Resistivity Tomography (ERT) applied to morpho-structural characterization of Peninsula Ushuaia, Tierra del Fuego, Argentina. Bollettino di Geofisica teorica ed applicata. An International Journal of Earth Sciences. Vol. 54 – SUPPLEMENT 2: 45-48
+    \item Rovira I, Tassone AA, \textbf{Esteban FD.} 2013. Morpho-sedimentary features of the south-western Scotia Sea. Bollettino di Geofisica teorica ed applicata. An International Journal of Earth Sciences. Vol. 54 – SUPPLEMENT 2: 343-345.
+    \item Maldonado, A.; Acosta, A.; García, M.; Lobo, F.J.; Martos, Y.M.; Pérez, L.F.; Puga, E.; Bohoyo, F.; Casas, D.; González, F.J.; Leon, R.; Medialdea, T.; Somoza, L.; Galindo-Zaldivar, J.; Larrad Revuelto M.; Rey Díaz de Rada, J.; Bozzano, G.; Elizondo, M.E.; \textbf{Esteban, F.D.}, Pelzmajer, M. 2013. Dredged rock samples from the southwestern Scotia Sea (SCAN 2013): remnants from the South America-Antarctic continental bridge. Bollettino di Geofisica teorica ed applicata. An International Journal of Earth Sciences. Vol. 54 – SUPPLEMENT 2: 330-333.
+    \item \textbf{Esteban, F.}; Bran, D.; Santomauro, M.; Tassone, A.; Menichetti, M.; Lodolo, E.; Lippai, H.; Vilas, J.F. 2013. The structures of the Peninsula Ushuaia in the Beagle Channel (Tierra del Fuego, Argentina). Rendiconti online Società Geologica Italiana. Vol. 29: 43-46.
+    \item Peroni, J.; Tassone, A.; Lippai, H.; \textbf{Esteban, F.D.}; Hervé, F.; Vilas, J.F. 2013. Relevamiento magnetométrico del segmento central del Canal Beagle, extremo meridional de Sudamérica. Latinmag letters, v.3, Special Issue. OB07, 1-5. \url{http://www.geofisica.unam.mx/LatinmagLetters/LL13-03-SP/B/OB07.pdf}
+    \item \textbf{Esteban, F.}; Tassone, A.; Lodolo, E.; Menichetti, M. 2012. The South America-Scotia plate boundary from 67ºW to 56ºW (Southermost Atlantic ocean). Rendiconti online Società Geologica Italiana. Vol. 22: 76-79.
+    \item \textbf{Esteban, F.}; Tassone, A.; Menichetti, M.; Rapalini, A.; Remesal, M.B; Cerredo, M.E.; Lippai, H.; Vilas, J.F. 2011. Magnetic fabric and microstructures across the Andes of Tierra del Fuego, Argentina. Andean Geology. Vol. 38 (1): 64-81.
+    \item \textbf{Esteban, F.}; Tassone, A.; Lodolo, E.; Menichetti, M. 2010. Morphostructure of the western sector of the North Scotia Ridge. Bollettino di Geofisica teorica ed applicata. Vol. 9: 209-212.
+    \item \textbf{Esteban, F.}; Tassone, A.; Menichetti, M.; Cerredo, M.E.; Rapalini, A.; Lippai, H.; Vilas, J.F. 2009. Suscettività magnetica e assetto strutturale nelle Ande in Tierra del Fuego. Rendiconti Online Società Geologica Italiana. Vol. 5: 80-83.
+    \item Peroni, J.I.; Tassone, A.; Cerredo, M.; Lippai, H.; Menichetti, M.; Lodolo, E., \textbf{Esteban, F.}; Vilas, J.F. 2008. 3D Geophysic model of Ushuaia Pluton. Tierra del Fuego. Argentina. Bollettino di Geofísica teorica ed applicata. suplement. GeoMod 2008. Vol. 49 (2): 262-267.
+\end{itemize}
+
+
+\subsection{Participacion en el desarrollo de Software y datos cientificos: (7)}
+
+\begin{itemize}
+    \item Wessel, P., Luis, J. F., Uieda, L., Scharroo, R., Wobbe, F., Smith, W. H. F., Tian, D., Jones, M., \& \textbf{Esteban, F}. (2025). The Generic Mapping Tools version 6.6.0 (6.6.0). Zenodo. \url{https://zenodo.org/doi/10.5281/zenodo.3407865}
+    \item Wessel, P., Luis, J. F., Uieda, L., Scharroo, R., Wobbe, F., Smith, W. H. F., Tian, D., Jones, M., \& \textbf{Esteban, F}. (2024). The Generic Mapping Tools version 6.5.0 (6.5.0). Zenodo. \url{https://doi.org/10.5281/zenodo.10119499}
+    \item Fatiando a Terra Project, \textbf{Esteban, F. D}., Li, L., Oliveira Jr, V. C., Pesce, A., Shea, N., Soler, S. R., Tankersley, M., \& Uieda, L. (2023). Harmonica v0.6.0: Forward modeling, inversion, and processing gravity and magnetic data (v0.6.0). Zenodo. \url{https://doi.org/10.5281/zenodo.7690145}
+    \item Wessel, P., \textbf{Esteban, F}., \& Suarez, E. (2023). DCW-GMT: The Digital Chart of the World for GMT (2.1.2) [Data set]. Zenodo. \url{https://doi.org/10.5281/zenodo.8283380}
+    \item Wessel, P., Luis, J. F., Uieda, L., Scharroo, R., Wobbe, F., Smith, W. H. F., Tian, D., Jones, M., \& \textbf{Esteban, F}. (2022). The Generic Mapping Tools version 6.4.0 (6.4.0). Zenodo. \url{https://doi.org/10.5281/zenodo.6623271}
+    \item Wessel, P., \textbf{Esteban, F.}, \& Suarez, E. (2022). DCW-GMT: The Digital Chart of the World for GMT (2.1.1) [Data set]. Zenodo. \url{https://doi.org/10.5281/zenodo.6823057}
+    \item Wessel, P., Luis, J. F., Uieda, L., Scharroo, R., Wobbe, F., Smith, W. H. F., Tian, D., Jones, M., \& \textbf{Esteban, F}. (2021). The Generic Mapping Tools version 6.3.0 (6.3.0). Zenodo. \url{https://doi.org/10.5281/zenodo.5708769}
+\end{itemize}
+
+
+\subsection{Trabajos en eventos científico-tecnológicos: (3)}
+
+\begin{itemize}
+    \item Ormazabal JP, \textbf{Esteban FD}, Principi S, Bravo ME, Palma F, Isola J, Bran DM, Tassone A. 2023. Seabed Faulting Associated with Gas Leakage in the Southern Malvinas Basin and Burdwood Bank. En: First EAGE Conference on South Atlantic Offshore Energy Resources. \url{https://www.earthdoc.org/content/papers/10.3997/2214-4609.202381018}
+    \item Bravo ME, Principi S, Pacheco LI, Sanchez CA, Palma F, Ormazabal JP, Isola JI, \textbf{Esteban FD}, Bran DM, Levin LA, Tassone AA. 2023. Discovery of Active Cold Seeps and Cold-water Coral Reefs in the Colorado Basin and Management Implications. En: First EAGE Conference on South Atlantic Offshore Energy Resources. \url{https://www.earthdoc.org/content/papers/10.3997/2214-4609.202381028}
+    \item \textbf{Esteban FD,} Tassone A, Lodolo E, Menichetti M, Lippai H, Darbo A, Baradello L. 2012. Basement geometry of Lago Fagnano (Tierra del Fuego). XIII Congreso Geológico Chileno. Antofagasta. 5 al 9 de agosto. Publicado en Actas. 4 p.
+\end{itemize}
+
+
+\subsection{Resúmenes en eventos científico-tecnológicos: (44)}
+
+\begin{itemize}
+    \item Oriolo S, Gonzalez, AB, Cantera C, Ceretani A, \textbf{Esteban FD}, et al. 2024. The Rad.Ar project: Radon, natural radioactivity and lung carcinogenesis in Argentina. Paper presented at the Proceedings of the XIII South American Symposium on Isotope Geology. \url{https://proceedings.science/ssagi-2024/papers/the-radar-project-radon-natural-radioactivity-and-lung-carcinogenesis-in-argenti?lang=en#}
+    \item \textbf{Esteban FD}, Ormazabal JP. 2024. Processing “Bad Tracks” for Bathymetric Maps with GMT. AGU24. \url{https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1706895}
+    \item Jones M, Luis JM, Scharroo R, Watts AB, \textbf{Esteban FD}, Koch K, Wobbe F, Sandwell DT, Uieda L, Smith WH, Tian D, Xu X, Leong WJ, Ito G, Mencin D. 2024. Exploring the history and future of GMT through the lens of mentorship, instruction, and governance. AGU24. \url{https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1648835}
+    \item Becker NC, Wang D, Geschwind LR, Ward B, Weinstein S, Fryer G, Preller C, \textbf{Esteban FD}, Delaviel-Anger G. 2024. The Life-Saving Legacy of the Generic Mapping Tools: The Critical Role of GMT in the Analysis and Communication of Tsunami Hazards. AGU24. \url{https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1582226}
+    \item Tong J-H, \textbf{Esteban FD}, Belem AL. 2024. Bridging Multilingual Boundaries in Earth Sciences: Inclusion, Diversity, Equity, and Access (IDEA) with GMT. AGU24. \url{https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1547229}
+    \item \textbf{Esteban FD}, Ormazabal JP, Principi S, Palma F, Bran DM, Tassone A. 2024. Processing of bad tracks for the creation of bathymetric grids. XXII Congreso Geológico Argentino. \url{https://drive.google.com/file/d/1oJw3gdcKprPVprCFnOX7qQLk-md4Kgvw/view?usp=drivesdk}
+    \item Ozan I, Beltrán González A, Oriolo S, Maffini N, \textbf{Esteban FD,} Vilensky M. y Equipo Rad.Ar. 2024. Proyecto Rad.Ar: Ciencia Ciudadana, Radiactividad y Salud. XVI Jornadas Nacionales de Debate Interdisciplinario en Salud y Población. Buenos Aires. \url{https://drive.google.com/file/d/1XE9pRU9z5Mop7OvkpX2lkLKmR42u6MWp/view}
+    \item Bran DM, Ormazabal JP, Palma FI, Acosta L, Principi S, \textbf{Esteban FD}, Tassone A. 2023. Deslizamientos submarinos en el registro sedimentario de la Cuenca Malvinas Occidental. En: Actas XVIII Reunión Argentina de Sedimentología : IX Congreso Latinoamericano de Sedimentología. \url{https://www.ras2023laplata.com/_files/ugd/0306a6_7fd69ea257d34faf86f5d4d284533dc9.pdf}
+    \item Ormazabal JP, Palma FI, Bravo E, Isola JI, Principi S, Gutierrez Y, Spoltore D, Bozzano G, Bran DM, \textbf{Esteban FD}, Tassone A. 2023. Depositación contornítica entre la depresión Malvinas y el borde noroccidental del Banco Burdwood, Atlántico sur (53.5°S-54.5°S). En: Actas XVIII Reunión Argentina de Sedimentología : IX Congreso Latinoamericano de Sedimentología. \url{https://www.ras2023laplata.com/_files/ugd/0306a6_7fd69ea257d34faf86f5d4d284533dc9.pdf}
+    \item Palma F, Principi S, Acosta L, Ormazabal JP, Bran DM, Gutierrez Y, Salazar N, Spoltore D, Bozzano G, \textbf{Esteban FD}, Tassone A. 2023. Caracterización cualitativa del fondo oceánico utilizando métodos acústicos. En: Actas XVIII Reunión Argentina de Sedimentología : IX Congreso Latinoamericano de Sedimentología. \url{https://www.ras2023laplata.com/_files/ugd/0306a6_7fd69ea257d34faf86f5d4d284533dc9.pdf}
+    \item Acosta L, Palma F, Principi S, Isola J, Ormazabal JP, Bran D, \textbf{Esteban FD}, Tassone A. 2023. Sector Norte del Margen Continental Argentino, El Sistema de Cañones Mar del Plata. En: Primer Congreso de la Iniciativa Pampa Azul.
+    \item Salazar N, Gutierrez Y, Bran D, Palma F, Principi S, Spoltore D, Nicora G, Arribalzaga F, Acosta L, Bravo ME, Isola J, Ormazabal JP, Mendoza E, \textbf{Esteban FD}, Bozzano G, Cavallotto J, Tassone A. 2023. Estudio Geológico, Geofísico y Ambiental del Área Geográfica Prioritaria sistema Fluvio Marítimo del Río de la Plata. Factores de control en su evolución morfo-estructural y sedimentaria (GeoFMRP). En: Primer Congreso de la Iniciativa Pampa Azul.
+    \item Palma F, Principi S, Ormazabal JP, Acosta L, Gutierrez Y, Lozano J, Restelli F, Salazar N, Isola J, Bunicontro E, Vilas JF, Bravo ME, \textbf{Esteban FD}, Bran DM, Mendoza E, Tassone A. 2023. Iluminando la Argentina Sumergida. En: Primer Congreso de la Iniciativa Pampa Azul.
+    \item \textbf{Esteban FD}, Ormazabal JP. 2023. Elaboración de una batimetría de precisión del Mar Argentino. El mar en Exactas, Buenos Aires. Zenodo. \url{https://doi.org/10.5281/zenodo.10814157}
+    \item \textbf{Esteban FD}, Ormazabal JP, Palma F. 2022. Elaboración de una batimetría de precisión de la Cuenca Malvinas. V Jornadas de Comunicaciones del IGEBA, Buenos Aires. Zenodo. \url{https://doi.org/10.5281/zenodo.10813465}
+    \item Principi S, \textbf{Esteban FD}, Isola J, Ormazabal J, Palma F, Artunduaga C, Bozzano G, Bravo ME, Spoltore D, Tassone A. 2019. Geological and Geophysical Investigations of the main morphosedimentary features of the Patagonian Continental Margin: new data acquired on board of the Austral R/V. En: Regional Conference on Geomorphology Athens.
+    \item Palma FI, \textbf{Esteban FD}, Isola J, Principi S, Ormazabal JP, Bozzano G, Spoltore D, Bravo ME, Artunduaga C, Tassone A. 2019. Morphosedimentary analysis of the Sloggett submarine canyon and its regional implications. NW Scotia Sea. En: Regional Conference on Geomorphology Athens.
+    \item Palma F, Ormazabal JP, Isola J, Bozzano G, Spoltore D, Tassone A, \textbf{Esteban FD} and GTGM Participants. A morphosedimentary characterization of three areas of the Argentine Continental Margin. 2019. 34th IAS Meeting of sedimentology. Rome. 10-13 de septiembre.
+    \item \textbf{Esteban FD}, Palma F, Ormazabal JP, Isola J, Tassone A, Grunfeld, K. 2018. Dominios morfoestructurales del Margen Mixto Pasivo-Transcurrente. Mar del Scotia. NW Argentina. En: Actas X Jornadas de Ciencias del Mar, 33.
+    \item Palma F, \textbf{Esteban FD}, Ormazabal JP, Isola JI, Almaraz F, Alvarez MD, Bozzano G, Bravo ME, de la Canal AM, Jara A, Lizasoain G, Minor Salvatierra ME, Monteros E, Pereyra Fernández EA, Pons, J, Principi L, Silio O, Tassone A. 2018. Análisis geomorfológico del Cañón Sloggett (Sverdrup) y su implicancia regional en la Dorsal Noroccidental de Scotia. En: Actas X Jornadas de Ciencias del Mar, 445.
+    \item \textbf{Esteban, F.D.}, Tassone, A.A., Cerredo, M.E., Grunfeld, K., 2017. Morfoestructuras del Margen Mixto Pasivo-Transcurrente Fueguino. Atlántico Sur. Argentina., En XX Congreso Geológico Argentino. San Miguel de Tucumán, 14–15.
+    \item \textbf{Esteban, F.D.}, Tassone, A.A., 2017. Morfoestructura y continuidad en la región de Tierra del Fuego y Dorsal Norte de Scotia de lineamientos tectónicos asociados a la apertura de la placa de Scotia., in: XX Congreso Geológico Argentino. 12–13.
+    \item Ormazabal, J.P., Tassone, A.A., \textbf{Esteban, F.D.}, Lozano, J.G., 2017. Configuración del segmento sur del offshore de la Cuenca de Magallanes y Cuenca de Malvinas, y Faja Plegada y Corrida asociada, Argentina., in: Congreso Geológico Argentino2. San Miguel de Tucumán, 31–33.
+    \item \textbf{Esteban, F.D.}; Tassone A.; Galarza-Torres C.; Isola J. 2015. Estudio geológico y geofísico del segmento noroccidental del mar del Scotia, En IX Jornadas Nacionales de Ciencias Del Mar. p. 2015.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Menichetti, M.; Lodolo, E. 2014. Estructuras transpresivas neógenas en el segmento nororiental del Banco Burdwood, Atlántico SO. XIX Congreso Geológico Argentino. Córdoba 2 al 6 de Junio. Publicado en Actas.
+    \item Tassone, A.; \textbf{Esteban, F.D.}; Lippai, H.; Lodolo, E.; Menichetti, M. 2014. Relevamiento de sísmica de reflexión y magnetometría del área central del Canal Beagle (Tierra del Fuego). XIX Congreso Geológico Argentino. Córdoba 2 al 6 de Junio. Publicado en Actas. XIX Congreso Geológico Argentino. Córdoba 2 al 6 de Junio. Publicado en Actas.
+    \item Barredo, S.; Ré, G.H; \textbf{Esteban, F.D.}; López, N.; Drosina, M. 2014. Estudio geodinámico de la Cuenca Triásica Ischigualasto – Villa Unión – Bolsón de Pagancillo. XIX Congreso Geológico Argentino. Córdoba 2 al 6 de Junio. Publicado en Actas.
+    \item Menichetti, M.; \textbf{Esteban, F.D.} 2013. The geometries and kinematics of the Ancona - M. Conero - Adriatic structures and the June-August 2013 seismic sequence. Riunione Anuala Gruppo Italiano Geologia Strutturale.
+    \item Pérez, L.F.; Hernández-Molina, F.J.; \textbf{Esteban, F.D.}; Tassone, A.; Piola, A.; Maldonado, A.; Lodolo, E. 2013. Contourite features in the Northern Scotia Sea: tectonic, sedimentary and palaeoceanographic implications. Bollettino di Geofisica teorica ed applicata. Geosur 2013.
+    \item Bran, D.; Tassone, A.; \textbf{Esteban, F.D.}; Menichetti, M.; Lippai, H.; Vilas J. F. 2013. Imagen en subsuelo y su continuidad en superficie del Sistema de fallas NO-SE, en el área de península Ushuaia. Tierra del Fuego. Noveno Encuentro Científico del ICES, E-ICES 9. Publicado en Actas. 1 p.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Lodolo, E.; Menichetti, M. 2013. Structural setting of the western South America-Scotia plate boundary. The Scotia Arc: Geodynamic Evolution \& Global Implications. Publicado en actas, 47-48.
+    \item Hernández-Molina, J.F.; Pérez. L.F.; \textbf{Esteban, F.D.}; Tassone, A.; Maldonado, A.; Lodolo, E. 2013. Contourite features in the northern Scotia Sea: preliminary sedimentary and paleoceanographic implications The Scotia Arc: Geodynamic Evolution \& Global Implications. Publicado en actas, 61-62.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Lodolo, E.; Lippai, H. 2012. Estudio Geofísico del Talud sur de la Dorsal Norte de Scotia. Octavo Encuentro Científico del ICES, E-ICES 8. Publicado en Actas.
+    \item Peroni, J.I.; Tassone, A.A.; Cerredo M.E., Menichetti, M.; Lippai, H.F.; \textbf{Esteban, F.D.}; Vilas J.F. 2012. Estudio Geofísico de los plutones aflorantes en el margen norte del Canal Beagle. Tierra del Fuego. Argentina. Octavo Encuentro Científico del ICES, E-ICES 8. Publicado en Actas.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Lodolo, E.; Menichetti, M.; Lippai, H.; Darbo, A.; Grossi, M.; Baradello, L. 2012. Single channel Seismic Survey in Lago Fagnano, Tierra del Fuego. Giambiaggi School- Applied and Enviromental Geophysics. Poster. Publicado en Actas.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Lippai, H.; Lodolo, E.; Menichetti, M. 2012. Morfoestructura en subsuelo del sistema de la fallas transcurrentes Magallanes-Fagnano, Tierra del Fuego. Actas Jornada Abierta de Comunicaciones Científicas del IGEBA. Publicado en Actas con Programa y Resumenes: 15.
+    \item Cerredo, M.E.; Rapalini, A.; Tassone, A.; \textbf{Esteban, F.D.}; Lippai, H.; Vilas, J.F. 2012. Fábrica magnética como indicador de tectónica transcurrente en la región de Tierra del Fuego. Actas Jornada Abierta de Comunicaciones Científicas del IGEBA. Publicado en Actas con Programa y Resúmenes: 17.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Menichetti, M.; Lodolo, E., 2011. Estudio geofísico del Banco Burdwood, Atlántico Sudoccidental. XVIII Congreso Geológico Argentino. Neuquén 2 al 6 de mayo. S-17. Actas en CD: 1182-1183.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Menichetti, M.; Lodolo, E., 2011. Morfoestructuras transtensivas y transpresivas en la traza del límite de placas Sudamérica-Scotia, Offshore de Tierra del Fuego. XVIII Congreso Geológico Argentino. Neuquén 2 al 6 de mayo. S-3. Actas en CD: 271-273.
+    \item \textbf{Esteban, F.D.}; Tassone A.; Menichetti, M.; Lodolo, E. 2009. Morfoestructuras de las cuencas sedimentarias asociadas al límite de placa Sudamérica-Scotia. Atlántico SW. Bahía Blanca: Bahía Blanca. Resumen. Jornada. VII Jornadas Nacionales de Ciencias del mar. Bahía Blanca del 30 de noviembre a 4 de diciembre. CD Actas. ISBN 978-987-25479-0-5.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Menichetti, M.; Lodolo, E. 2009. 3D de las cuencas de pull-apart en el margen continental atlántico de Tierra del Fuego. Mendoza: Volumen de Resúmenes. Resumen. Congreso. XXIV Reunión Científica de Geofísica y Geodesia (AAGG). 14 a 17 de abril. Mendoza. Argentina. Volumen de Resúmenes: 108-109.
+    \item \textbf{Esteban, F.D.}; Tassone, A.; Rapalini, A.; Cerredo, M.E.; Menichetti, M.; Lippai, H.; Vilas, J.F. 2008. Relación entre fábrica magnética y tectónica en los Andes australes. Tierra del Fuego. Argentina. XVII Congreso Geológico Argentino, 7-10 octubre, San Salvador, Jujuy, Argentina. Actas: 99.
+    \item \textbf{Esteban, F.D.}; Rapalini, A.; Tassone, A.; Cerredo, M.E.; Vilas, J.F; Lippai, H. 2007. Magnetic fabric and microstructures across the Andes of Tierra del Fuego. International Geological Congress on the Southern Hemisfere (Geosur 2). 19-20 de noviembre. Santiago. Chile. Libro de Resúmenes: 56
+    \item Menichetti, M.; Tassone, A.; Cerredo, M.E.; \textbf{Esteban, F.D.} 2007. Geological cross-sections in the Fuegian Andes. International Geological Congress on the Southern Hemisfere (Geosur 2). 19-20 de noviembre. Santiago. Chile. Libro de Resúmenes: 99.
+    \item Tassone, A.; \textbf{Esteban, F.D.}; Menichetti, M.; Rapalini, A., Lippai, H.; Vilas, J.F. 2006. Transecta geofísica a través de las Sierras de Sorondo y Alvear. Tierra del Fuego. XXIII Reunión Científica de la Asociación Argentina de Geofísicos y Geodestas (AAGyG). 14-19 de agosto 2006. Bahía Blanca. Argentina.
+\end{itemize}
+
+
+\subsection{Trabajos en eventos científico-tecnológicos no publicados: (4)}
+
+\begin{itemize}
+    \item Oriolo S, Beltrán González A, Cantera C, Ceretani A, \textbf{Esteban FD}, Ferreyro I, Gómez A, Kietzmann D, Orstera H, Ozán I, Rodríguez D, Sivori M, Tobal J, Vilensky M, Zaccara H. 2023. Radón: Radioactividad natural y carcinogénesis ambiental. En: Jornadas Socioambientales de la FCEN. Noviembre de 2023.
+    \item \textbf{Esteban FD}, Peroni JI, Lippai H, Ramé G, Tassone A. 2018. Métodos geofísicos y su utilización para relevamientos de naufragios. En Jornadas de Comunicación del IGEBA IV. Diciembre de 2018. Buenos Aires.
+    \item Ormazabal JP, Tassone A, \textbf{Esteban FD}, Ísola J, Cayo LE. 2018. Estructura del tope de cuña y antefosa de las cuencas Magallanes-Malvinas entre los 67° O y 62° O. Océano Atlántico Sudoccidental. En Jornadas de Comunicación del IGEBA IV. Diciembre de 2018. Buenos Aires.
+    \item \textbf{Esteban FD}, Tassone A, Menichetti M, Lodolo E. 2016. Aplicación de mapas de pendientes como complemento de mapas batimétricos: Ejemplo del Atlántico SO. Jornadas de Comunicaciones del IGeBA III. Presentación Oral.
+\end{itemize}
+
+
+\subsection{Tesis: (2)}
+
+\begin{itemize}
+    \item 2014. Esteban, F.D. Estudio geofísico-geológico del subsuelo del segmento noroccidental de la Dorsal Norte de Scotia. Argentina. Tesis Doctoral. Universidad de Buenos Aires. 303 p.
+    \item 2008. Esteban, F.D. Estudio de la fábrica magnética y microestructuras a través de una transecta de los Andes Fueguinos. Tesis de grado. Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Geología.
+\end{itemize}
+
+
+\section{Producción Tecnológica}
+
+
+\subsection{Servicios científico-tecnológicos: (5)}
+
+\begin{itemize}
+    \item 2025-2026. “Análisis de la dinámica costera y optimización de las operaciones de dragado en el Puerto de Mar del Plata”, OAT 3/2026. Miembro del equipo colaborador.
+    \item 2021. Capacitacion en Geoinformatica aplicada a la cartografia multitemática. Servicio Tecnológicos de Alto Nivel (STAN). Consultor individual. Servicio eventual.
+    \item 2018-2019. Asistencia tecnológica, geológica y geofísica en estudios de lechos de cuerpo de agua. Servicio Tecnológicos de Alto Nivel (STAN). Responsable del equipo y/o área (Jefe Científico en la campañas Oceanográficas Au3 y Au6).
+    \item 2016-2020. Realización de campañas geológicas y geofísicas marinas. Servicio Tecnológicos de Alto Nivel (STAN). Responsable del área.
+    \item Octubre 2013 - Marzo 2014: Asesoría de alto nivel realizado para la Dra. Silvia Barredo del Instituto Tecnológico de Buenos Aires (ITBA) para la integración de base de datos sísmica de reflexión multicanal 2D con el programa Kingdom Suite y su interpretación con el fin de estudiar el sistema petrolero de la cuenca intermontana de Bermejo, en las provincias de San Juan y La Rioja.
+\end{itemize}
+
+
+\subsection{Informe Técnico: (2)}
+
+\begin{itemize}
+    \item 2010. Lippai H., Esteban F.D. Prospección Geofísica Marina. Informe Campaña Oceanográfica. 42 pp. Realizado para el Ministerio de Relaciones Exteriores y Culto.
+    \item 2009. Esteban F.D. Informe campaña Oceanográfica del Meteor. 30pp. Realizado para el Ministerio de Relaciones Exteriores y Culto.
+\end{itemize}
+
+
+\subsection{Formación de Recursos Humanos: (1)}
+
+\begin{itemize}
+    \item 2018-2023: Co-director del tesista doctoral Femín Palma. Título: Estudio geofísico del Cañón Submarino Sloggett. Geomorfología y factores que controlaron su evolución, Margen Continental de Tierra del Fuego, Argentina. Universidad de Buenos Aires.
+\end{itemize}
+
+
+\section{Antecedentes}
+
+
+\subsection{Campañas Oceanográficas: (11)}
+
+\begin{itemize}
+    \item 2018-10 - Campaña YTEC-GTGM1 (Au6) a bordo del buque Oceanográfica Austral. Duración: 20 días. Jefe científico.
+    \item 2017-11 - Campaña SAR-SUB a bordo del buque Puerto Deseado. Duración: 22 días. Se realizaron relevamientos magnetométricos para la asistencia en la búsqueda del submarino ARA San Juan.
+    \item 2017-09 - Campaña YTEC-GTGM2 (Au3) a bordo del buque Oceanográfica Austral. Duración: 30 días. Jefe científico.
+    \item 2017-09 - Campaña YTEC-GTGM0 (Au2) a bordo del buque Oceanográfica Austral. Duración: 15 días.
+    \item 2017-03 – Campaña prueba de equipamiento de sonar multi-haz en el buque Oceanográfico Austral. Iniciativa Pampa Azul. Duración: 7 días.
+    \item 2014-11 – Campaña geológica a bordo del buque oceanográfico CONICET-Puerto Deseado. Toma de dragas en la región del Banco Burdwood. Iniciativa Pampa Azul. Duración: 21 días.
+    \item 2013-02 - Campaña geológica-geofísica SCAN2013 a bordo del buque Oceanográfico BIO Hespérides. Relevamiento sísmico, batimétrico y magnetométrico desarrollado en el mar de Scotia. Duración 28 días.
+    \item 2010-09 – Campaña geofísica COPLA a bordo del buque Oceanográfico CONICET-Puerto Deseado. Relevamiento batimétrico y magnetométrico desarrollado entre las 200 y 350 millas náuticas de la costa de Mar del Plata. Duración 9 días.
+    \item 2010-06 – Campaña geofísica COPLA a bordo del buque Oceanográfico CONICET-Puerto Deseado. Relevamiento batimétrico y magnetométrico desarrollado entre las 200 y 350 millas náuticas de la costa de Chubut. Duración 22 días.
+    \item 2009-06 – Campaña en el buque oceanográfico METEOR como observador. Duración: 3 semanas.
+    \item 2008-12 – Campaña geofísica COPLA a bordo del buque Oceanográfico CONICET-Puerto Deseado en el talud del mar argentino, a la latitud de Mar del Plata. Duración: 4 días.
+\end{itemize}
+
+
+\subsection{Financiamiento}
+
+\textbf{Proyectos científicos con financiación en curso (1):}
+
+\begin{itemize}
+    \item A Sustainable Plan for the Future of the Generic Mapping Tools. 2020-2027. Director: Garrett Apuzen-Ito. 757.597 U\$S. Participación como nuevo desarrollador.
+\end{itemize}
+
+\textbf{Proyectos científicos finalizados (18):}
+
+\begin{itemize}
+    \item Proyecto RAD.AR: radón y su impacto socio-ambiental. 2023-2024. Integrante del grupo colaborador responsable de geología-geomática. Director: Sebastián Oriolo. 1 año. 3.000.000 \$.
+    \item PICT-2020-SERIEA-02746. 2022-2024. Financiado por Nº RESOL-2022-3-APN-DANPIDTYI\#. “Estudio geológico y geofísico de Lagos Patagónicos meridionales”. Director: A. Tassone. 3 años. 3.249.000 \$.
+    \item Programa “Investigación, desarrollo e innovación en Ciencias del Mar” 2021. PIDT de la Iniciativa Pampa Azul. RE-2021-68428463-APN-DDYGD\#MCT 2022-2024, denominado "Estudio Geológico, Geofísico y Ambiental del Área Geográfica Prioritaria sistema Fluvio Marítimo del Río de la Plata. Factores de control en su evolución morfo-estructural y sedimentaria (GeoFMRP)", Director: A. Tassone. 3 años. 11.556.929 \$. Integrante del grupo colaborador.
+    \item PiP CONICET 2021-2024 (11220200103152CO). “Estudio sismoacústico y morfosedimentario del margen continental argentino (sectores patagónico y bonaerense meridional). Interacción de procesos endógenos y exógenos. (SIMOCA)”. Director: A. Tassone. 320.000 \$. Integrante del grupo colaborador.
+    \item 2022-2024. Conexiones entre Malvinas, Patagonia y Península Antártica durante el desmembramiento de Gondwana. PICTO-2021- MALVINAS- 00004. Integrante del grupo responsable.
+    \item 2017-2023. VII Programa Ejecutivo de Cooperación Científica y Tecnológica para los años 2017-2019 entre el Ministerio de Ciencia, Tecnología e Innovación Productiva de la República Argentina (MINCYT) y el Ministerio de Asuntos Exteriores y Cooperación Internacional (MAECI). Proyecto IT/GR/17/02. “Historia de los repetidos colapsos de la barrera de hielo del glaciar Perito Moreno, en el Lago Argentino”. Reactivado y prorrogado con financiación por dos años para 2022 y 2023 Director: Alejandro Tassone. Financiamiento equivalente en pesos a 20.000 dólares por cada año. Integrante del grupo colaborador.
+    \item 2017-2023. Proyecto científico en Geociencias Marinas, en el marco del Convenio de colaboración en investigación y desarrollo entre el Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) e YPF Tecnología S.A. (Y-TEC), aprobado por Resolución Nro. 4141 del Directorio del 07 de diciembre de 2016, por 4 años, con inicio de ejecución en 2017. Prorrogado en 2021, para la realización de 2 campañas en 2022 y 2023. Responsable científico y representante técnico, Dr. Alejandro Tassone. El objeto es llevar a cabo las campañas de exploración y conservación con fines de investigación científica a bordo del Buque oceanográfico Austral – CONICET, donde Y-TEC e YPF, sponsorizan las investigaciones científicas del Grupo de Prospección Geológica (GTGM) de la Iniciativa Pampa Azul (IPA). El auspicio incluye el financiamiento para la realización de campañas, la formación de recursos humanos y adquisición de instrumental científico. Integrante del grupo colaborador.2017-2020. Cooperación Científica y Tecnológica. Gran Relevancia. Argentina-Italia. Historia de los repetidos colapsos de la barrera de hielo del glaciar Perito Moreno, en el Lago Argentino. Investigador. Director: A. Tassone. Monto: 60.000 euros.
+    \item 2015-2018. Agenica. FONCyT. PICT Tipo I (A) Grupos consolidados. Estudio geofísico de la región suroriental de Sudamérica. Canal Beagle y Dorsal Norte del Scotia (BESCO). Investigador. Director: A. Tassone. Monto: 420,000 pesos.
+    \item 2014-2017. UBACyT Nro. 20020130100585BA. Proyectos de Investigación Científica o de Innovación Tecnológica de la Universidad de Buenos Aires, Tipo A de Grupos Consolidados. Título del proyecto: “Estudio geológico y geofísico de los Sistemas de Fallas NO-SE y O-E en un segmento meridional de la Isla Grande de Tierra del Fuego. Argentina“. Investigador. Director J. F. Vilas.
+    \item 2012-2015. PIP-CONICET Nro. 112201101 000618. Convocatoria a proyectos Plurianuales 2011. Título “Estudio geofísico del segmento central del Canal Beagle”. Becario. Director: A. Tassone. Aprobado por Resolución Nro. 1675 del 06 de junio de 2012. Fondos solicitados: 90.000 pesos.
+    \item 2011-2014. UBACyT. Convocatoria 2010 a Proyectos de Investigación Científica o de Innovación Tecnológica de la Universidad de Buenos Aires, Tipo A de Grupos Consolidados. Título del proyecto: “Tomografía de resistividad eléctrica (ERT) y relevamientos batimétricos aplicados al estudio de la tectónica reciente y activa en Tierra del Fuego“. Becario. Director: J. F. Vilas. Monto: 90.000 pesos.
+    \item 2009-2012. La Agencia. FONCyT. PICT 2007 – 00106\_ Tipo III\_ (IDAC-ICES). Estudio geofísico y geológico aplicado a la investigación de las fallas transcurrentes principales del extremo meridional de Sudamérica y NW de la placa de Scotia. Relación entre tectónica, sismicidad y paleoclima. Becario. Director: A. Tassone. Finalización de subsidio 07 de febrero de 2013.
+    \item 2009-2012. Agencia Nacional de Promoción Científica, Tecnológica y de Innovación. Proyecto: “Modelado Geológico-Geofísico de las unidades Meso-Cenozoicas magmáticas y sedimentarias que conforman los Andes Fueguinos (FUEGUEAN)”. Becario. Director J. F. Vilas. Monto: 120.000 pesos.
+    \item 2009-2011. UBACyT X-235. Convocatoria 2007 a Proyectos de Investigación Científica o de Innovación Tecnológica de la Universidad de Buenos Aires, Tipo A de Grupos Consolidados. Título del proyecto: “Reconstrucción geodinámica y paleoclimática durante el Cenozoico. Implicancias socio-ambientales en la región de Tierra del Fuego”. Becario. Director J. F. Vilas. Finalización junio 2011.
+    \item 2009-2010. Convocatoria 2007 para la programación 2009-2010 del Ministerio de Asuntos Exteriores de Italia (MAE). Progetti di ricerca di grande rilevanza nell’ambito del Programma Esecutivo Italia-Argentina. Titulo: “Ricostruire le variazioni climatiche del Tardo Quaternario: Uno studio sui laghi della Patagonia.” Becario. Directores: por Italia Emanuele Lodolo (OGS), por Argentina Alejandro Tassone (CONICET-UBA). Monto:
+    \item 2005-2009. PIP-CONICET N° 5782. “Sistemas de fallas transcurrentes principales en la región de Tierra del Fuego. Neotectónica, implicancias ambientales y relación paleoclima-tectónica” (AMBITEC). Estudiante-Becario. Director J. F. Vilas. Monto: 84.000 pesos.
+    \item 2004-2007. Agencia Nacional de Promoción Científica, Tecnológica y de Innovación. Proyecto: “Geodinamic Evolution of the Magallanes basin and meridional Andes” GEMA. Estudiante. Director J. F. Vilas. PICT 7-15185. Monto: 170.200 pesos.
+    \item 2004-2007. Universidad de Buenos Aires. Proyecto: “Transcurrencia y convergencia de placas en los Andes patagónicos-fueguinos y océano Atlántico sudoccidental. Implicancias geodinámicas para la región.” Estudiante. Director J. F. Vilas. UBACyT X 250. Monto: 45.000 pesos.
+\end{itemize}
+
+
+\subsection{Estadías subsidiadas en Instituciones de investigación (2)}
+
+1. 2011. Estadía en el Istituto Nazionale di Oceanografia e di Geofisica Sperimentale (OGS) de la ciudad de Trieste, Italia a cargo del Dr. Emanuele Lodolo. Además, me instruí en procesamiento de líneas sísmicas mono- y multicanal, en particular con el programa SeismicUnix con el Dr. Luca Baradello. Duración: 30 días.
+
+2. 2011. Estadía en el Istituto di Scienze della Terra, de la Università di Urbino de la ciudad de Urbino, Italia a cargo del Dr. Marco Menichetti. Duración: 15 días
+
+
+\subsection{Becas}
+
+\begin{itemize}
+    \item \textbf{2013}. Beca CONICET postdoctoral. Director: Alejandro Tassone. Duración: 2 años. Convocatoria 2012.
+    \item \textbf{2011}. Beca CONICET de Postgrado Tipo II. Tema: Edificación del margen continental argentino meridional (Atlántico SO). Factores de control durante su evolución meso-cenozoica. Lugar de trabajo: Departamento- Geología. FCEyN. UBA. Director: Alejandro Tassone. Duración: 2 años.
+    \item \textbf{2008}. Beca CONICET de Postgrado Tipo I. Tema: Edificación del margen continental argentino meridional (Atlántico SO). Factores de control durante su evolución meso-cenozoica. Lugar de trabajo: Departamento de Geología. FCEN. UBA. Director: Alejandro Tassone. Duración: 3 años.
+\end{itemize}
+
+
+\subsection{Evaluación}
+
+\begin{itemize}
+    \item 2019. Revisor para el Jorunal Geosfera Indonesia.
+    \item 2019. Revisor para Journal of South American Earth Sciences.
+    \item 2018. Revisor para las Jornadas de Ciencias del Mar y
+    \item 2019 a 2023. Revista de la Asociación Geológica Argentina.
+    \item 2017. Revisor para el XX Congreso Geológico Argentino.
+    \item 2015. Revisor de la Revista Marine Geology.
+\end{itemize}
+
+
+\subsection{Extensión}
+
+\textbf{Actividades de Divulgación Científica: (8)}
+
+\begin{itemize}
+    \item Publicación de las clases Webinar Gratuito «Elaboración de Mapas con GENERIC MAPPING TOOLS» para el Centro Argentino de Cartografia. Evento emitido por YouTube (\url{https://www.youtube.com/watch?v=tXKto-_HmnM&t}) en septiembre de 2022.
+    \item 2022: Webinar Gratuito «Elaboración de Mapas con GENERIC MAPPING TOOLS» para el Centro Argentino de Cartografia. Evento emitido por Youtube: \url{https://www.youtube.com/watch?v=tXKto-_HmnM&t}
+    \item 2015-2021: Autor del blog \url{http://mapasgeologicos.blogspot.com.ar/} en el cual se explica cómo hacer figuras (mapas, gráficos, perfiles, bloques 3D) con software libre y de código abierto (FOSS).
+    \item 2021: Webinar "Programación y cartografía: enséñale a tu pc a hacer los mapas que querés" para Academia GIS. Evento emitido por Youtube: \url{https://www.youtube.com/watch?v=xfEEWGu_jBo&}
+    \item 2017-2018. Participación y Asesoramiento científico para el documental unitario "Campaña Cero" divulgado en televisión y en internet. Orientado al público en general. \url{https://www.conicet.gov.ar/conicet-documental-estrena-campana-cero-por-la-tv-publica-argentina/} y \url{https://www.youtube.com/watch?v=279CpcseoZ4}.
+    \item 2016: Participación en el documental “Serie Banco Burdwood”, Capítulo 1 (Huellas del Pasado). Director: Gastón Guevara. Productora: CONICET Documental.
+    \item 2008-Actualidad: Participación en el stand de Geofísica en el evento “Semana de las Ciencias de la Tierra” organizado por el Departamento de Ciencias Geológicas, Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires.
+    \item 2015. Presentación de la charla “Burdwood: La isla sumergida del Banco Burdwood” en el marco del evento “Semana de las Ciencias de la Tierra” organizado por el Departamento de Ciencias Geológicas, Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires.
+\end{itemize}
+
+\end{document}
