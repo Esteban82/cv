@@ -1,0 +1,79 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            latexmk \
+            texlive-xetex \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra
+
+      # Builds _output/cv.pdf (English) and _output/cv_es.pdf (Spanish).
+      # The Makefile falls back to latexmk + XeLaTeX when Tectonic is absent.
+      - name: Build PDFs
+        run: make
+
+      - name: Upload PDFs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdfs
+          path: _output/*.pdf
+
+      - name: Prepare site for GitHub Pages
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p _site
+          cp _output/cv.pdf _output/cv_es.pdf _site/
+          cat > _site/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Curriculum Vitae</title>
+          <h1>Curriculum Vitae</h1>
+          <ul>
+            <li><a href="cv.pdf">English</a></li>
+            <li><a href="cv_es.pdf">Español</a></li>
+          </ul>
+          HTML
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
